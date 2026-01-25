@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Islamic Knowledge & Hanafi Teachings</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Baskerville', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(194, 24, 91, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .noor-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .light-ray {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            animation: fallLight 8s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fallLight {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-bottom: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(46, 125, 50, 0.08);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            text-decoration: none;
+        }
+
+        .site-subtitle {
+            font-size: 0.9rem;
+            color: #c2185b;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2e7d32, #c2185b);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 2rem 0 3rem;
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(232, 245, 233, 0.6) 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #c2185b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .arabic {
+            font-size: 1.3rem;
+            color: #2e7d32;
+            margin: 1rem 0;
+            font-family: 'Traditional Arabic', 'Scheherazade', serif;
+        }
+
+        .content-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 25px rgba(46, 125, 50, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(194, 24, 91, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-section h3 {
+            font-size: 1.3rem;
+            color: #c2185b;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-section p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-section li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #4a5f4a;
+        }
+
+        .content-section li::before {
+            content: '◆';
+            position: absolute;
+            left: 0.5rem;
+            color: #c2185b;
+        }
+
+        .highlight-box {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid #2e7d32;
+            border-radius: 5px;
+            margin: 2rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box strong {
+            color: #2e7d32;
+        }
+
+        .disclaimer {
+            background: linear-gradient(135deg, rgba(194, 24, 91, 0.05) 0%, rgba(194, 24, 91, 0.02) 100%);
+            padding: 2rem;
+            border-left: 4px solid #c2185b;
+            border-radius: 10px;
+            margin: 3rem 0;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .edit-instructions {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px dashed #f57c00;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .edit-instructions h3 {
+            color: #e65100;
+            margin-bottom: 1rem;
+        }
+
+        .edit-instructions p {
+            margin-bottom: 0.5rem;
+            color: #4a5f4a;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-top: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        footer p {
+            color: #2e7d32;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noor-container" id="noorContainer"></div>
+
+    <header>
+        <nav>
+            <div class="logo-section">
+                <a href="index.html" class="site-title">Islamic Knowledge & Hanafi Teachings</a>
+                <div class="site-subtitle">Clarity, Authenticity, Humility</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="hanafi.html">Hanafi Madhhab</a></li>
+                <li><a href="questions.html">Questions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>About the Author</h1>
+            <p class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        </div>
+
+        
+
+        <div class="content-section">
+            <h2>Introduction</h2>
+            <p>
+                Assalamu alaikum wa rahmatullahi wa barakatuh. My name is [YOUR NAME], and I am a Sunni Muslim who follows the Hanafi madhhab. This website is a humble effort to share Islamic knowledge in a clear, accessible way for ordinary Muslims who seek to understand their faith more deeply.
+            </p>
+            <p>
+                I am not a scholar, nor do I claim any special authority in Islamic knowledge. Rather, I am a student of Islam who has spent years learning from qualified teachers and reading the works of our righteous predecessors. What I share here is what I have learned from those who came before me.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>My Journey to Islamic Knowledge</h2>
+            
+            <h3>Early Years</h3>
+            <p>
+                <!-- EDIT THIS SECTION - Share your personal story -->
+                Like many Muslims, I grew up with a basic understanding of Islam—knowing how to pray, fast, and recite Qur'an—but without deep knowledge of why we do what we do or how Islamic law is derived. I had many questions but few clear answers.
+            </p>
+            <p>
+                As I grew older, I encountered conflicting information from various sources: different opinions online, heated debates in the community, and confusion about which scholars to trust. This led me on a journey to understand Islam properly, from its foundations.
+            </p>
+
+            <h3>Learning from Scholars</h3>
+            <p>
+                <!-- EDIT THIS SECTION - Describe your learning journey -->
+                Alhamdulillah, I was blessed to connect with knowledgeable teachers who taught me the importance of following the madhhabs and understanding Islamic methodology. I learned that Islam is not about picking and choosing opinions based on convenience, but about submitting to Allah's guidance through the framework our scholars have preserved.
+            </p>
+            <p>
+                I studied the basics of Hanafi fiqh, Hadith sciences, and Islamic theology (aqidah) under the guidance of qualified teachers. This transformed my understanding of Islam from a collection of rules to a comprehensive way of life rooted in divine wisdom.
+            </p>
+
+            <h3>Why I Write</h3>
+            <p>
+                <!-- THIS SECTION - Explain your motivation -->
+                I noticed that many Muslims today face the same confusion I once experienced. There is so much information available, but very little clarity. People are told to "just follow Quran and Sunnah" without understanding that this requires deep knowledge and proper methodology.
+            </p>
+            <p>
+                I felt a responsibility to share what I have learned in simple language, helping others avoid the confusion and doubt I once struggled with. This website is my small contribution to making authentic Islamic knowledge accessible to everyone.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>My Approach to Teaching</h2>
+            
+            <div class="highlight-box">
+                <p><strong>My methodology is based on these principles:</strong></p>
+            </div>
+
+            <ul>
+                <li><strong>Clarity over complexity:</strong> Islamic knowledge should be accessible. I avoid unnecessary jargon and explain concepts in everyday language.</li>
+                <li><strong>Following the scholars:</strong> I base my writings on the established positions of the Hanafi madhhab and the broader Sunni tradition, not personal opinion.</li>
+                <li><strong>Humility and respect:</strong> I acknowledge that I am a student, not a scholar. I treat those who disagree with respect and avoid polemics.</li>
+                <li><strong>Authenticity:</strong> Everything I share is grounded in the Qur'an, authentic Sunnah, and the consensus of qualified scholars.</li>
+                <li><strong>Service to the Ummah:</strong> This work is for the sake of Allah alone. I do not seek fame, money, or recognition—only His acceptance.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Why the Hanafi Madhhab?</h2>
+            <p>
+                I follow the Hanafi school of Islamic jurisprudence because it is the madhhab I was raised in and the one I have studied most deeply. The Hanafi madhhab represents the methodology of Imam Abu Hanifa (may Allah have mercy on him), one of the greatest scholars in Islamic history.
+            </p>
+            <p>
+                However, I respect all four Sunni madhhabs (Hanafi, Maliki, Shafi'i, and Hanbali) and recognize them as valid paths to understanding Allah's commands. The differences between them are matters of scholarly interpretation, not fundamental disagreements about faith.
+            </p>
+            <p>
+                Following a madhhab does not mean blind imitation—it means learning from qualified scholars who have dedicated their lives to understanding the Qur'an and Sunnah. It is a path of humility and wisdom.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>What You'll Find on This Website</h2>
+            <p>
+                This website contains:
+            </p>
+            <ul>
+                <li>Books on Islamic topics written in accessible language</li>
+                <li>Articles addressing common questions and doubts</li>
+                <li>Explanations of the Hanafi madhhab for beginners</li>
+                <li>Guidance on how to approach Islamic knowledge properly</li>
+                <li>Resources for continued learning</li>
+            </ul>
+            <p>
+                Everything here is offered freely for the sake of Allah. You may download, share, and benefit from these materials without restriction.
+            </p>
+        </div>
+
+        <div class="disclaimer">
+            <h2 style="color: #c2185b; margin-bottom: 1rem;">Important Disclaimer</h2>
+            <p>
+                I am not a trained Islamic scholar (alim) or mufti. I am a student who has studied under qualified teachers and continues to learn. If you find any errors in my work, please contact me so I can make corrections.
+            </p>
+            <p>
+                For serious Islamic rulings (fatwas), please consult qualified scholars in your area. This website is for educational purposes and general understanding—not for issuing legal verdicts.
+            </p>
+            <p>
+                I ask Allah to accept this work, forgive my shortcomings, and make it beneficial for those who read it. All good is from Allah alone; any mistakes are from myself and Shaytan.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Contact & Feedback</h2>
+            <p>
+                I welcome respectful feedback, corrections, and questions. If you notice any errors in my writing or have suggestions for improvement, please reach out through the <a href="contact.html" style="color: #2e7d32; text-decoration: underline;">contact page</a>.
+            </p>
+            <p>
+                May Allah guide us all to His truth, grant us sincerity in our intentions, and accept our efforts to serve His religion.
+            </p>
+            <p style="text-align: center; margin-top: 2rem; color: #c2185b; font-style: italic;">
+                وَآخِرُ دَعْوَانَا أَنِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Islamic Knowledge & Hanafi Teachings | In service to Allah and the Ummah</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #c2185b; font-style: italic;">May Allah accept our efforts and forgive our shortcomings</p>
+    </footer>
+
+    <script>
+        const noorContainer = document.getElementById('noorContainer');
+        
+        function createLightRay() {
+            const ray = document.createElement('div');
+            ray.className = 'light-ray';
+            ray.style.left = Math.random() * 100 + '%';
+            ray.style.animationDelay = Math.random() * 5 + 's';
+            ray.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            noorContainer.appendChild(ray);
+            setTimeout(() => ray.remove(), 10000);
+        }
+        
+        setInterval(createLightRay, 1500);
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createLightRay, i * 500);
+        }
+    </script>
+</body>
+
+</html>

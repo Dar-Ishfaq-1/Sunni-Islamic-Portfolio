@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles & Essays - Islamic Knowledge & Hanafi Teachings</title>
+   
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Baskerville', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(194, 24, 91, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .noor-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .light-ray {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            animation: fallLight 8s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fallLight {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-bottom: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(46, 125, 50, 0.08);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            text-decoration: none;
+        }
+
+        .site-subtitle {
+            font-size: 0.9rem;
+            color: #c2185b;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2e7d32, #c2185b);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 2rem 0 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(232, 245, 233, 0.6) 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #c2185b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 245, 233, 0.7) 100%);
+            padding: 2rem;
+            border-left: 5px solid #c2185b;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 25px rgba(46, 125, 50, 0.1);
+        }
+
+        .edit-instructions {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px dashed #f57c00;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .edit-instructions h3 {
+            color: #e65100;
+            margin-bottom: 1rem;
+        }
+
+        .edit-instructions p {
+            margin-bottom: 0.5rem;
+            color: #4a5f4a;
+        }
+
+        .category-section {
+            margin: 3rem 0;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #c2185b;
+            font-weight: 600;
+        }
+
+        .article-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(194, 24, 91, 0.05) 0%, transparent 70%);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(46, 125, 50, 0.18);
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #5a6c57;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .article-title {
+            font-size: 1.6rem;
+            color: #c2185b;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-excerpt {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            padding: 0.3rem 1rem;
+            background: rgba(46, 125, 50, 0.1);
+            color: #2e7d32;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .read-more {
+            color: #c2185b;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .read-more::after {
+            content: ' →';
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-top: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        footer p {
+            color: #2e7d32;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .article-card {
+                padding: 1.5rem;
+            }
+
+            .article-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noor-container" id="noorContainer"></div>
+
+    <header>
+        <nav>
+            <div class="logo-section">
+                <a href="index.html" class="site-title">Islamic Knowledge & Hanafi Teachings</a>
+                <div class="site-subtitle">Clarity, Authenticity, Humility</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="hanafi.html">Hanafi Madhhab</a></li>
+                <li><a href="questions.html">Questions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Articles & Essays</h1>
+            <p>In-depth explorations of Islamic topics, contemporary issues, and Hanafi teachings</p>
+        </div>
+
+        
+
+        <div class="intro-text">
+            <p>These articles address important questions about Islamic knowledge, the Hanafi madhhab, and how to practice Islam authentically in the modern world. Each piece is written with care, grounded in authentic sources, and aimed at providing clarity.</p>
+        </div>
+
+        <!-- CATEGORY 1: Qur'an & Sunnah -->
+        <div class="category-section">
+            <h2 class="category-title">Qur'an & Sunnah</h2>
+
+            <!-- ARTICLE 1 - EXAMPLE -->
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 January 15, 2026</span>
+                    <span>⏱️ 8 min read</span>
+                </div>
+                <div class="article-title">How to Understand the Qur'an: Beyond Literal Translation</div>
+                <div class="article-excerpt">
+                    Many Muslims read the Qur'an in translation and assume they understand its full meaning. But translation is only the first step. This article explains the classical methodology for understanding Allah's book—considering context, Arabic grammar, the Prophet's explanation, and the understanding of the early Muslims. Learn why we need scholars and proper training to truly comprehend the Qur'an's guidance.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Qur'an</span>
+                    <span class="tag">Tafsir</span>
+                    <span class="tag">Methodology</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+
+            <!-- ARTICLE 2 - EXAMPLE -->
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 December 28, 2025</span>
+                    <span>⏱️ 12 min read</span>
+                </div>
+                <div class="article-title">The Status of Sunnah: Why We Cannot Ignore the Prophet's Teachings</div>
+                <div class="article-excerpt">
+                    Some people claim to "follow only the Qur'an" and reject or downplay the Sunnah. This article demonstrates from the Qur'an itself why the Sunnah is indispensable, how the Prophet ﷺ explained and applied the Qur'an, and why rejecting his teachings is rejecting Islam itself. Includes clear proofs and responses to common objections.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Sunnah</span>
+                    <span class="tag">Hadith</span>
+                    <span class="tag">Authority</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+        </div>
+
+        <!-- CATEGORY 2: Hadith & Authority -->
+        <div class="category-section">
+            <h2 class="category-title">Hadith & Islamic Scholarship</h2>
+
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 December 10, 2025</span>
+                    <span>⏱️ 10 min read</span>
+                </div>
+                <div class="article-title">Understanding Hadith Classification: Sahih, Hasan, and Da'if Explained</div>
+                <div class="article-excerpt">
+                    Not all hadiths have the same level of authenticity. This article breaks down the complex science of hadith classification into simple terms. Learn what makes a hadith "sahih" (authentic), "hasan" (good), or "da'if" (weak), and why scholars spend years mastering these distinctions. Essential reading for anyone wanting to understand how Islamic knowledge is preserved.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Hadith Science</span>
+                    <span class="tag">Methodology</span>
+                    <span class="tag">Authenticity</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 November 22, 2025</span>
+                    <span>⏱️ 15 min read</span>
+                </div>
+                <div class="article-title">Why We Can't Just "Read Hadith Ourselves": The Need for Scholarship</div>
+                <div class="article-excerpt">
+                    In the age of the internet, anyone can access hadith collections. But reading hadiths without proper training leads to misunderstanding and error. This article explains why we need qualified scholars to interpret hadiths—understanding chains of narration, reconciling apparent contradictions, knowing context, and applying proper methodology. A defense of traditional Islamic scholarship.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Scholarship</span>
+                    <span class="tag">Hadith</span>
+                    <span class="tag">Taqlid</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+        </div>
+
+        <!-- CATEGORY 3: Taqlid & Madhhabs -->
+        <div class="category-section">
+            <h2 class="category-title">Taqlid & the Madhhabs</h2>
+
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 November 5, 2025</span>
+                    <span>⏱️ 20 min read</span>
+                </div>
+                <div class="article-title">Taqlid is Not Blind Following: Understanding True Islamic Learning</div>
+                <div class="article-excerpt">
+                    Critics often accuse those who follow madhhabs of "blind following" (taqlid). But what does taqlid actually mean? This comprehensive article explains the different types of following in Islam—from the learned ijtihad to the informed taqlid of ordinary Muslims. Discover why following qualified scholars is not blind imitation but educated trust, just like trusting a doctor or engineer in their field.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Taqlid</span>
+                    <span class="tag">Madhhabs</span>
+                    <span class="tag">Ijtihad</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 October 18, 2025</span>
+                    <span>⏱️ 18 min read</span>
+                </div>
+                <div class="article-title">The Four Madhhabs: Unity, Not Division</div>
+                <div class="article-excerpt">
+                    Are the four Sunni schools of thought a source of division in Islam? This article traces the history of the madhhabs, shows how they emerged naturally from the Companions' different interpretations, and demonstrates how they've actually preserved unity by providing structured frameworks for understanding Islam. Learn why all four are valid and why choosing one to follow is wisdom, not sectarianism.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Madhhabs</span>
+                    <span class="tag">Unity</span>
+                    <span class="tag">History</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 October 1, 2025</span>
+                    <span>⏱️ 12 min read</span>
+                </div>
+                <div class="article-title">Can I Follow Different Madhhabs for Different Issues?</div>
+                <div class="article-excerpt">
+                    A practical question many Muslims ask: Is it allowed to pick and choose rulings from different schools? This article explains the concept of talfiq (mixing madhhabs), when it's permitted, when it's problematic, and why consistency within a school is generally recommended. Includes real-life examples and guidance from contemporary scholars.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Talfiq</span>
+                    <span class="tag">Practical Fiqh</span>
+                    <span class="tag">Madhhabs</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+        </div>
+
+        <!-- CATEGORY 4: Contemporary Issues -->
+        <div class="category-section">
+            <h2 class="category-title">Contemporary Issues & Challenges</h2>
+
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 September 15, 2025</span>
+                    <span>⏱️ 14 min read</span>
+                </div>
+                <div class="article-title">Social Media Sheikhs: The Dangers of Unqualified Religious Advice</div>
+                <div class="article-excerpt">
+                    YouTube, Instagram, and TikTok are filled with people giving Islamic advice—but are they qualified? This article examines the rise of social media "scholars," the dangers of following unqualified speakers, and how to identify genuine Islamic scholarship. Learn what credentials to look for and why traditional chains of learning (ijazah) still matter in the digital age.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Modern Challenges</span>
+                    <span class="tag">Scholarship</span>
+                    <span class="tag">Social Media</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 August 28, 2025</span>
+                    <span>⏱️ 16 min read</span>
+                </div>
+                <div class="article-title">The "Just Follow Quran and Sunnah" Slogan: A Well-Meaning Mistake</div>
+                <div class="article-excerpt">
+                    Everyone agrees we should follow the Qur'an and Sunnah—but how? This article dissects the popular slogan "just follow Quran and Sunnah" and shows why it's incomplete without methodology. Explore how the great imams (Abu Hanifa, Malik, Shafi'i, Ahmad) all followed Qur'an and Sunnah but came to different conclusions, and why their methodologies are still essential today.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Methodology</span>
+                    <span class="tag">Common Misconceptions</span>
+                    <span class="tag">Madhhabs</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+        </div>
+
+        <!-- CATEGORY 5: Islamic Methodology -->
+        <div class="category-section">
+            <h2 class="category-title">Islamic Methodology & Principles</h2>
+
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 August 10, 2025</span>
+                    <span>⏱️ 22 min read</span>
+                </div>
+                <div class="article-title">Usul al-Fiqh for Beginners: How Islamic Law Works</div>
+                <div class="article-excerpt">
+                    Ever wonder how scholars derive rulings from the Qur'an and Sunnah? This accessible introduction to usul al-fiqh (principles of Islamic jurisprudence) explains the tools scholars use: understanding language, dealing with general vs. specific texts, reconciling apparently conflicting evidence, and applying analogical reasoning. Essential for understanding how Islamic law actually functions.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Usul al-Fiqh</span>
+                    <span class="tag">Methodology</span>
+                    <span class="tag">Islamic Law</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+
+            <a href="#" class="article-card">
+                <div class="article-meta">
+                    <span>📅 July 25, 2025</span>
+                    <span>⏱️ 11 min read</span>
+                </div>
+                <div class="article-title">The Role of Ijma' (Consensus) in Preserving Islam</div>
+                <div class="article-excerpt">
+                    One of Islam's safeguards against error is the principle of ijma'—scholarly consensus. This article explains what ijma' is, how it functions, why it's considered binding, and how it has protected core Islamic teachings throughout history. Includes discussion of different types of consensus and their authority in Islamic law.
+                </div>
+                <div class="article-tags">
+                    <span class="tag">Ijma</span>
+                    <span class="tag">Consensus</span>
+                    <span class="tag">Islamic Principles</span>
+                </div>
+                <span class="read-more">Read Full Article</span>
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Islamic Knowledge & Hanafi Teachings | Exploring Islamic knowledge with depth and clarity</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #c2185b; font-style: italic;">May our words be guided by truth and wisdom</p>
+    </footer>
+
+    <script>
+        const noorContainer = document.getElementById('noorContainer');
+        
+        function createLightRay() {
+            const ray = document.createElement('div');
+            ray.className = 'light-ray';
+            ray.style.left = Math.random() * 100 + '%';
+            ray.style.animationDelay = Math.random() * 5 + 's';
+            ray.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            noorContainer.appendChild(ray);
+            setTimeout(() => ray.remove(), 10000);
+        }
+        
+        setInterval(createLightRay, 1500);
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createLightRay, i * 500);
+        }
+    </script>
+</body>
+
+</html>

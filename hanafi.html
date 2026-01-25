@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the Hanafi Madhhab - Islamic Knowledge</title>
+  
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Baskerville', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(194, 24, 91, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .noor-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .light-ray {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            animation: fallLight 8s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fallLight {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-bottom: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(46, 125, 50, 0.08);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            text-decoration: none;
+        }
+
+        .site-subtitle {
+            font-size: 0.9rem;
+            color: #c2185b;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2e7d32, #c2185b);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 2rem 0 3rem;
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(232, 245, 233, 0.6) 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #c2185b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #5a6c57;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 245, 233, 0.7) 100%);
+            padding: 2rem;
+            border-left: 5px solid #c2185b;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 25px rgba(46, 125, 50, 0.1);
+        }
+
+        .section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2.5rem 0;
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(194, 24, 91, 0.05) 0%, transparent 70%);
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section h3 {
+            font-size: 1.3rem;
+            color: #c2185b;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section p {
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section ul, .section ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section li {
+            margin-bottom: 0.8rem;
+            color: #4a5f4a;
+        }
+
+        .highlight-box {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid #2e7d32;
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .example-box {
+            background: rgba(194, 24, 91, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid #c2185b;
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .example-box h4 {
+            color: #c2185b;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+            z-index: 2;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #2e7d32, #c2185b);
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '◆';
+            position: absolute;
+            left: -2.3rem;
+            color: #c2185b;
+            font-size: 1.2rem;
+        }
+
+        .timeline-item strong {
+            color: #2e7d32;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-top: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        footer p {
+            color: #2e7d32;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noor-container" id="noorContainer"></div>
+
+    <header>
+        <nav>
+            <div class="logo-section">
+                <a href="index.html" class="site-title">Islamic Knowledge & Hanafi Teachings</a>
+                <div class="site-subtitle">Clarity, Authenticity, Humility</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="hanafi.html">Hanafi Madhhab</a></li>
+                <li><a href="questions.html">Questions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Understanding the Hanafi Madhhab</h1>
+            <p>A beginner's guide to the Hanafi school of Islamic jurisprudence</p>
+        </div>
+
+        <div class="intro-box">
+            <p>The Hanafi madhhab is one of the four major schools of Sunni Islamic jurisprudence. It is followed by the majority of Muslims worldwide, particularly in South Asia, Turkey, the Balkans, Central Asia, and parts of the Arab world.</p>
+            <p>This guide will help you understand what a madhhab is, who Imam Abu Hanifa was, how the Hanafi methodology works, and how it applies to daily life—all in simple, accessible language.</p>
+        </div>
+
+        <!-- SECTION 1: What is a Madhhab? -->
+        <div class="section">
+            <h2>1. What is a Madhhab?</h2>
+            
+            <p>The word "madhhab" (مذهب) literally means "a way" or "a path." In Islamic terminology, it refers to a school of thought in Islamic jurisprudence (fiqh)—a systematic method for understanding and applying the Shari'ah.</p>
+
+            <h3>Why Do Madhhabs Exist?</h3>
+            <p>After the Prophet Muhammad ﷺ passed away, Muslims needed guidance on how to apply the Qur'an and Sunnah to new situations and changing circumstances. The Companions (Sahaba) would answer questions based on their understanding, but they sometimes had different interpretations.</p>
+            
+            <p>Over time, great scholars emerged who developed comprehensive methodologies for deriving Islamic rulings. These methodologies became known as madhhabs. The four main Sunni madhhabs are:</p>
+
+            <div class="highlight-box">
+                <ol>
+                    <li><strong>Hanafi</strong> - Founded by Imam Abu Hanifa (80-150 AH / 699-767 CE)</li>
+                    <li><strong>Maliki</strong> - Founded by Imam Malik ibn Anas (93-179 AH / 711-795 CE)</li>
+                    <li><strong>Shafi'i</strong> - Founded by Imam al-Shafi'i (150-204 AH / 767-820 CE)</li>
+                    <li><strong>Hanbali</strong> - Founded by Imam Ahmad ibn Hanbal (164-241 AH / 780-855 CE)</li>
+                </ol>
+            </div>
+
+            <h3>Are the Madhhabs Different Religions?</h3>
+            <p>No, absolutely not. All four madhhabs are valid paths to understanding Islam. They all follow the Qur'an and Sunnah—they simply have different methodologies for interpreting certain details.</p>
+
+            <p>The differences between them are like different roads leading to the same destination. A person traveling from Makkah to Madinah might take different routes, but they all arrive at the same place.</p>
+
+            <h3>Do I Have to Follow a Madhhab?</h3>
+            <p>For ordinary Muslims who are not qualified scholars, following a madhhab is the safest and most reliable way to practice Islam correctly. It ensures we are following the guidance of qualified experts rather than relying on our own limited understanding.</p>
+
+            <div class="example-box">
+                <h4>Example from Daily Life:</h4>
+                <p>When you get sick, you go to a doctor—you don't diagnose yourself. Similarly, in matters of Islamic law, we follow qualified scholars who have spent decades studying. The madhhabs represent the collective wisdom of generations of such scholars.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: Who Was Imam Abu Hanifa? -->
+        <div class="section">
+            <h2>2. Who Was Imam Abu Hanifa?</h2>
+
+            <p>Imam Abu Hanifa's full name was Nu'man ibn Thabit ibn Zuta. He was born in Kufa, Iraq, in the year 80 AH (699 CE) and lived during the time of the Umayyad and early Abbasid caliphates.</p>
+
+            <h3>His Early Life</h3>
+            <p>Abu Hanifa was born into a Persian family of merchants. His father was a successful trader, and Abu Hanifa initially pursued business as well. However, his passion for Islamic knowledge led him to dedicate his life to learning and teaching.</p>
+
+            <h3>His Teachers and Students</h3>
+            <p>Imam Abu Hanifa studied under some of the greatest scholars of his time, including several Tabi'in (students of the Companions). His most famous students were:</p>
+
+            <ul>
+                <li><strong>Imam Abu Yusuf</strong> (113-182 AH) - Later became the chief judge (Qadi al-Qudat)</li>
+                <li><strong>Imam Muhammad al-Shaybani</strong> (132-189 AH) - Authored major works of Hanafi fiqh</li>
+                <li><strong>Imam Zufar ibn Hudhayl</strong> (110-158 AH) - Known for his sharp intellect</li>
+            </ul>
+
+            <h3>His Character and Piety</h3>
+            <p>Imam Abu Hanifa was known for his deep knowledge, extraordinary intelligence, piety, and principled character. He refused to accept positions of power from unjust rulers, even when threatened with imprisonment.</p>
+
+            <div class="highlight-box">
+                <p><strong>His Devotion:</strong> It is said that Imam Abu Hanifa completed the entire Qur'an in prayer every single night for many years. He would recite it completely during his tahajjud (night prayer).</p>
+            </div>
+
+            <h3>His Passing</h3>
+            <p>Imam Abu Hanifa passed away in Baghdad in 150 AH (767 CE). It is reported that thousands of people attended his funeral prayer, and his grave in Baghdad remains visited by Muslims to this day.</p>
+        </div>
+
+        <!-- SECTION 3: The Hanafi Methodology -->
+        <div class="section">
+            <h2>3. The Hanafi Methodology</h2>
+
+            <p>The Hanafi school follows a specific methodology for deriving Islamic rulings. Here are the primary sources in order of priority:</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>1. The Qur'an</strong>
+                    <p>The word of Allah is the first and highest source. Any clear command in the Qur'an must be followed.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <strong>2. The Sunnah (Authentic Hadith)</strong>
+                    <p>The sayings, actions, and approvals of Prophet Muhammad ﷺ. Hanafi scholars are very careful about hadith authentication.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <strong>3. Ijma' (Scholarly Consensus)</strong>
+                    <p>When all qualified scholars of a generation agree on a ruling, this consensus is binding. It ensures the Ummah never unites on error.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <strong>4. Qiyas (Analogical Reasoning)</strong>
+                    <p>When no direct text exists, scholars use analogy to derive rulings based on similar cases. This requires deep knowledge and expertise.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <strong>5. Istihsan (Juristic Preference)</strong>
+                    <p>In certain cases, departing from a strict analogy to achieve a better outcome that aligns with the spirit of Islamic law.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <strong>6. 'Urf (Custom)</strong>
+                    <p>Consideration of local customs and practices, as long as they don't contradict Islamic principles.</p>
+                </div>
+            </div>
+
+            <h3>Distinctive Features of Hanafi Fiqh</h3>
+            <ul>
+                <li><strong>Emphasis on reasoning:</strong> The Hanafi school is known for its sophisticated use of logical reasoning and analogy</li>
+                <li><strong>Flexibility:</strong> Ability to adapt to different cultures and contexts while maintaining Islamic principles</li>
+                <li><strong>Detailed categorization:</strong> Comprehensive classification of rulings and situations</li>
+                <li><strong>Consideration of circumstances:</strong> Taking into account hardship, custom, and practicality</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 4: Daily Life Examples -->
+        <div class="section">
+            <h2>4. Hanafi Rulings in Daily Life</h2>
+
+            <p>Here are some practical examples of how Hanafi fiqh applies to everyday situations:</p>
+
+            <h3>Prayer (Salah)</h3>
+            <div class="example-box">
+                <h4>Raising Hands in Prayer</h4>
+                <p><strong>Hanafi position:</strong> Hands are raised only at the opening takbir (Allahu Akbar), not before and after ruku (bowing).</p>
+                <p><strong>Why?</strong> Based on the practice of certain Companions and the principle of maintaining stillness in prayer.</p>
+                <p><em>Note: Other madhhabs raise hands at multiple points, which is also valid.</em></p>
+            </div>
+
+            <div class="example-box">
+                <h4>Position of Hands During Standing</h4>
+                <p><strong>Hanafi position:</strong> Men place hands below the navel; women place hands on the chest.</p>
+                <p><strong>Why?</strong> Based on specific narrations and considerations of modesty and propriety.</p>
+            </div>
+
+            <h3>Wudu (Ablution)</h3>
+            <div class="example-box">
+                <h4>Wiping the Head</h4>
+                <p><strong>Hanafi position:</strong> At least one-fourth of the head must be wiped with wet hands.</p>
+                <p><strong>Why?</strong> Based on the interpretation of the Qur'anic verse and various authentic narrations.</p>
+            </div>
+
+            <h3>Fasting (Sawm)</h3>
+            <div class="example-box">
+                <h4>What Breaks the Fast?</h4>
+                <p><strong>Hanafi position:</strong> Intentionally eating, drinking, or allowing anything to reach the stomach through the mouth or nose breaks the fast.</p>
+                <p>Injections that provide nutrition may break the fast, but medicinal injections that don't provide nourishment generally don't.</p>
+            </div>
+
+            <h3>Business and Contracts</h3>
+            <div class="example-box">
+                <h4>Modern Financial Transactions</h4>
+                <p><strong>Hanafi approach:</strong> Detailed analysis of contracts to ensure they don't contain riba (interest), gharar (excessive uncertainty), or other prohibited elements.</p>
+                <p>The school has developed sophisticated principles for evaluating modern financial instruments and business practices.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 5: Common Misconceptions -->
+        <div class="section">
+            <h2>5. Common Misconceptions About the Hanafi Madhhab</h2>
+
+            <h3>Misconception #1: "Hanafis don't follow Hadith"</h3>
+            <div class="highlight-box">
+                <p><strong>Reality:</strong> The Hanafi madhhab is deeply rooted in Hadith. Imam Abu Hanifa and his students were meticulous about hadith authentication. The school has its own rigorous standards for accepting narrations.</p>
+                <p>Sometimes Hanafis may not follow a particular hadith if there are questions about its chain of narration, if it contradicts a stronger narration, or if the Companions' practice suggests a different understanding.</p>
+            </div>
+
+            <h3>Misconception #2: "The madhhabs cause division"</h3>
+            <div class="highlight-box">
+                <p><strong>Reality:</strong> The madhhabs have actually preserved unity by providing structured frameworks for understanding Islam. Throughout history, Muslims of different madhhabs prayed together, studied together, and lived peacefully together.</p>
+                <p>Division comes from arrogance, intolerance, and ignorance—not from respectful scholarly differences within the bounds of Islam.</p>
+            </div>
+
+            <h3>Misconception #3: "Following a madhhab means you're not following Qur'an and Sunnah"</h3>
+            <div class="highlight-box">
+                <p><strong>Reality:</strong> The madhhabs are methodologies FOR understanding and following the Qur'an and Sunnah. They don't replace these sources—they provide the framework for properly understanding them.</p>
+                <p>An ordinary Muslim following a madhhab is following the Qur'an and Sunnah through the guidance of qualified scholars, just as a patient follows medical advice through the expertise of doctors.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 6: Learning More -->
+        <div class="section">
+            <h2>6. How to Learn More</h2>
+
+            <p>If you want to deepen your understanding of the Hanafi madhhab:</p>
+
+            <ol>
+                <li><strong>Find a qualified teacher:</strong> Nothing replaces learning from a knowledgeable, practicing scholar</li>
+                <li><strong>Study classical texts:</strong> Start with beginner-friendly works, then progress to more advanced books</li>
+                <li><strong>Read reliable translations:</strong> Many classical Hanafi works are now available in English</li>
+                <li><strong>Attend classes and lectures:</strong> Many mosques and Islamic centers offer Hanafi fiqh courses</li>
+                <li><strong>Be patient and humble:</strong> Islamic knowledge is a lifelong journey—approach it with humility</li>
+            </ol>
+
+            <div class="highlight-box">
+                <p><strong>Important Reminder:</strong> The goal of studying fiqh is not to win debates or prove others wrong. The goal is to worship Allah correctly and live according to His guidance. Approach your learning with sincerity, humility, and good character.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Islamic Knowledge & Hanafi Teachings | Learning the path of the righteous scholars</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #c2185b; font-style: italic;">May Allah grant us beneficial knowledge and the ability to act upon it</p>
+    </footer>
+
+    <script>
+        const noorContainer = document.getElementById('noorContainer');
+        
+        function createLightRay() {
+            const ray = document.createElement('div');
+            ray.className = 'light-ray';
+            ray.style.left = Math.random() * 100 + '%';
+            ray.style.animationDelay = Math.random() * 5 + 's';
+            ray.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            noorContainer.appendChild(ray);
+            setTimeout(() => ray.remove(), 10000);
+        }
+        
+        setInterval(createLightRay, 1500);
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createLightRay, i * 500);
+        }
+    </script>
+</body>
+
+</html>

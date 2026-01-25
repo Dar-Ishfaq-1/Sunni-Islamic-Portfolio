@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - Islamic Knowledge & Hanafi Teachings</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Baskerville', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(194, 24, 91, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .noor-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .light-ray {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            animation: fallLight 8s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fallLight {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-bottom: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(46, 125, 50, 0.08);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            text-decoration: none;
+        }
+
+        .site-subtitle {
+            font-size: 0.9rem;
+            color: #c2185b;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2e7d32, #c2185b);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 2rem 0 3rem;
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(232, 245, 233, 0.6) 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #c2185b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #5a6c57;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .intro-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            padding: 2rem;
+            border-left: 5px solid #c2185b;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 25px rgba(46, 125, 50, 0.1);
+        }
+
+        .intro-section p {
+            margin-bottom: 1rem;
+        }
+
+        .books-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .book-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.8) 100%);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.12);
+            transition: all 0.4s ease;
+            border-top: 4px solid #2e7d32;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(194, 24, 91, 0.05) 0%, transparent 70%);
+            transition: all 0.4s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.2);
+        }
+
+        .book-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-title {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .book-title h2 {
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .book-subtitle {
+            font-size: 1.1rem;
+            color: #5a6c57;
+            font-style: italic;
+        }
+
+        .book-status {
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .status-published {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+        }
+
+        .status-upcoming {
+            background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);
+            color: white;
+        }
+
+        .status-progress {
+            background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+            color: white;
+        }
+
+        .book-description {
+            margin: 1.5rem 0;
+            color: #2c3e50;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-description p {
+            margin-bottom: 1rem;
+        }
+
+        .book-details {
+            margin: 2rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-details h3 {
+            color: #2e7d32;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .book-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .book-details li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4a5f4a;
+        }
+
+        .book-details li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #c2185b;
+        }
+
+        .book-audience {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #2e7d32;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-audience strong {
+            color: #2e7d32;
+        }
+
+        .book-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 245, 233, 0.9) 100%);
+            color: #2e7d32;
+            border: 2px solid #2e7d32;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+        }
+
+        .btn-disabled {
+            background: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-top: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        footer p {
+            color: #2e7d32;
+            font-size: 0.9rem;
+        }
+
+       
+        .edit-instructions {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px dashed #f57c00;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .edit-instructions h3 {
+            color: #e65100;
+            margin-bottom: 1rem;
+        }
+
+        .edit-instructions p {
+            margin-bottom: 0.5rem;
+            color: #4a5f4a;
+        }
+
+        .edit-instructions code {
+            background: rgba(0,0,0,0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .book-card {
+                padding: 1.5rem;
+            }
+
+            .book-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .book-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noor-container" id="noorContainer"></div>
+
+    <header>
+        <nav>
+            <div class="logo-section">
+                <a href="index.html" class="site-title">Islamic Knowledge & Hanafi Teachings</a>
+                <div class="site-subtitle">Clarity, Authenticity, Humility</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="hanafi.html">Hanafi Madhhab</a></li>
+                <li><a href="questions.html">Questions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Islamic Books</h1>
+            <p>Comprehensive works on Islamic knowledge, Hanafi fiqh, and foundational teachings</p>
+        </div>
+
+        
+
+        <div class="intro-section">
+            <p>These books are written to help ordinary Muslims understand their faith with clarity and confidence. Each work is grounded in the Qur'an, authentic Sunnah, and the methodology of the Hanafi madhhab.</p>
+            <p>All books are made available for free as a service to the Ummah. You may download, share, and distribute them freely for educational purposes.</p>
+        </div>
+
+        <div class="books-grid">
+            
+          <!-- TO ADD A NEW BOOK: Copy from here... -->
+<div class="book-card">
+    <div class="book-header">
+        <div class="book-title">
+            <h2>Preserving the Sunni Creed</h2>
+            <p class="book-subtitle">
+                ʿAqīdah, Continuity, and Scholarly Responsibility in the Indian Subcontinent
+            </p>
+        </div>
+        <div class="book-status status-inprogress">completed</div>
+    </div>
+
+    <div class="book-description">
+        <p>
+            This book examines major theological fitnas that have affected Sunni Islamic creed, with a
+            particular focus on the Indian Subcontinent. It explains why correct ʿaqīdah is the foundation
+            of Islam and how deviations at the creed level carry serious consequences.
+        </p>
+        <p>
+            Using classical Sunni scholarship as its reference point, the book analyzes contested beliefs,
+            clarifies orthodox positions, and presents the scholarly response rooted in continuity rather
+            than innovation.
+        </p>
+    </div>
+
+    <div class="book-details">
+        <h3>Topics Covered:</h3>
+        <ul>
+            <li>ʿAqīdah as the foundation of Islam and the nature of theological fitna</li>
+            <li>Sunni principles of tanzīh and understanding divine attributes</li>
+            <li>Rejection of anthropomorphism and claims of imperfection about Allah ﷻ</li>
+            <li>The status, honor, and theological rank of the Prophet Muhammad ﷺ</li>
+            <li>Classical Sunni creed from the Sahaba to the great Imams</li>
+            <li>The scholarly legacy of Imam Ahmad Raza Khan</li>
+            <li>Continuity of Sunni Islam in the Indian Subcontinent</li>
+        </ul>
+    </div>
+
+    <div class="book-audience">
+        <strong>Intended Audience:</strong>
+        Readers seeking a clear, scholarly, and traditional understanding of Sunni Islamic belief.
+        Written in structured and accessible language for students and lay Muslims alike.
+    </div>
+
+    <div class="book-actions">
+    <a href="books/Preserve Creed.pdf" class="btn btn-primary">📥 Download PDF (Free)</a>
+    <a href="books/Preserve Creed.pdf" target="_blank" class="btn btn-secondary">📖 Read Online</a>
+</div>
+</div>
+
+
+<div class="book-card">
+    <div class="book-header">
+        <div class="book-title">
+            <h2>The Architecture of Sunni Islam</h2>
+            <p class="book-subtitle">
+                From the Age of the Sahaba to the Formation of Madhhabs, Aqīdah Schools, and Mujaddids
+            </p>
+        </div>
+        <div class="book-status status-upcoming">completed</div>
+    </div>
+
+    <div class="book-description">
+        <p>
+            <strong>The Architecture of Sunni Islam</strong> is a structured and historically grounded study of how Islam was preserved through scholarly tools without altering its original foundations. 
+            The book carefully distinguishes between Islam as divine revelation and the methodologies developed by Sunni scholars to safeguard it.
+        </p>
+
+        <p>
+            One dedicated section of the book explores the emergence of Sunni fiqh madhhabs, including a detailed study of <strong>Imam Abū Ḥanīfah</strong> and the Ḥanafī method as a response to legal, social, and hadith-related challenges in early Islamic history.
+        </p>
+    </div>
+
+    <div class="book-details">
+        <h3>Key Sections Include:</h3>
+        <ul>
+            <li>The Qur’an and Sunnah as the sole sources of Islam</li>
+            <li>The Sahaba: unity in belief, diversity in understanding</li>
+            <li>Why fiqh madhhabs emerged historically</li>
+            <li>Imam Abū Ḥanīfah and the Ḥanafī legal methodology</li>
+            <li>The other three Sunni madhhabs and their approaches</li>
+            <li>Sunni ʿAqīdah before and after theological schools</li>
+            <li>Ashʿarī, Māturīdī, and Atharī methodologies explained</li>
+            <li>The concept of tajdīd and the role of mujaddids</li>
+            <li>Unity, ikhtilāf, and the ethics of disagreement</li>
+        </ul>
+    </div>
+
+    <div class="book-audience">
+        <strong>Intended Audience:</strong>
+        Students of Islamic studies, researchers, and sincere readers seeking a clear, non-sectarian understanding of Sunni Islam, its legal schools, and its theological tradition.
+    </div>
+<div class="book-actions">
+    <a href="books/The Architecture of Sunni Islam.pdf" class="btn btn-primary">📥 Download PDF (Free)</a>
+    <a href="books/The Architecture of Sunni Islam.pdf" target="_blank" class="btn btn-secondary">📖 Read Online</a>
+</div>
+    </div>
+</div>
+
+
+
+         <div class="book-card">
+    <div class="book-header">
+        <div class="book-title">
+            <h2>Understanding the Hanafi Path</h2>
+            <p class="book-subtitle">A Simple Guide to Islamic Law, Hadith, and Following Scholars</p>
+        </div>
+        <div class="book-status status-progress">completed</div>
+    </div>
+
+    <div class="book-description">
+        <p>
+            This book is written for Muslims who feel confused by conflicting opinions, 
+            debates about Hadith, and questions such as “Why follow a madhhab at all?” 
+            It explains Islamic guidance step by step, using simple language and clear examples.
+        </p>
+        <p>
+            The goal is not to attack or debate, but to remove confusion and help readers 
+            understand how the Qur’an, Sunnah, Hadith, scholars, and the Hanafi madhhab 
+            work together in a balanced way.
+        </p>
+    </div>
+
+    <div class="book-details">
+        <h3>Topics Covered:</h3>
+        <ul>
+            <li>The role of the Qur’an and why it often gives principles, not details</li>
+            <li>The Sunnah of the Prophet ﷺ and how it explains the Qur’an</li>
+            <li>What Hadith are and how scholars preserved and verified them</li>
+            <li>Why scholars exist and why expertise matters in Islamic law</li>
+            <li>What taqlid really means and why it is not blind following</li>
+            <li>Why madhhabs were formed and how they protect Islam from confusion</li>
+            <li>The life and methodology of Imam Abu Hanifa</li>
+            <li>How the Hanafi madhhab balances text and reason</li>
+            <li>Answers to common objections like “Qur’an only” and “Hadith were written late”</li>
+            <li>How an ordinary Muslim can practice Islam with clarity and peace</li>
+        </ul>
+    </div>
+
+    <div class="book-audience">
+        <strong>Intended Audience:</strong> 
+        Muslims who want a clear, calm, and beginner-friendly understanding of Islamic law, 
+        Hadith, and the Hanafi madhhab—especially those overwhelmed by online debates and conflicting views.
+    </div>
+
+    <div class="book-actions">
+    <a href="books/Understanding the Hanafi Path.pdf" class="btn btn-primary">📥 Download PDF (Free)</a>
+    <a href="books/Understanding the Hanafi Path.pdf" target="_blank" class="btn btn-secondary">📖 Read Online</a>
+</div>
+</div>
+
+
+            <!-- ADD MORE BOOKS HERE - Just copy one of the above book-card divs and edit -->
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Islamic Knowledge & Hanafi Teachings | All books are free for educational use</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #c2185b; font-style: italic;">May Allah accept this effort and benefit the Ummah</p>
+    </footer>
+
+    <script>
+        const noorContainer = document.getElementById('noorContainer');
+        
+        function createLightRay() {
+            const ray = document.createElement('div');
+            ray.className = 'light-ray';
+            ray.style.left = Math.random() * 100 + '%';
+            ray.style.animationDelay = Math.random() * 5 + 's';
+            ray.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            noorContainer.appendChild(ray);
+            setTimeout(() => ray.remove(), 10000);
+        }
+        
+        setInterval(createLightRay, 1500);
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createLightRay, i * 500);
+        }
+    </script>
+</body>
+
+</html>

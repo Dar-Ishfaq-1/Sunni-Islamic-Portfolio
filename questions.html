@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Questions - Islamic Knowledge & Hanafi Teachings</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Baskerville', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(194, 24, 91, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .noor-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .light-ray {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            animation: fallLight 8s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fallLight {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-bottom: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(46, 125, 50, 0.08);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            text-decoration: none;
+        }
+
+        .site-subtitle {
+            font-size: 0.9rem;
+            color: #c2185b;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2e7d32, #c2185b);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 2rem 0 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(232, 245, 233, 0.6) 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #c2185b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 245, 233, 0.7) 100%);
+            padding: 2rem;
+            border-left: 5px solid #c2185b;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 25px rgba(46, 125, 50, 0.1);
+        }
+
+        .category-section {
+            margin: 3rem 0;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #c2185b;
+            font-weight: 600;
+        }
+
+        .qa-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qa-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(194, 24, 91, 0.05) 0%, transparent 70%);
+        }
+
+        .qa-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(46, 125, 50, 0.15);
+        }
+
+        .question {
+            font-size: 1.3rem;
+            color: #c2185b;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .question::before {
+            content: 'Q: ';
+            color: #2e7d32;
+            font-weight: 700;
+        }
+
+        .answer {
+            color: #2c3e50;
+            line-height: 1.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .answer p {
+            margin-bottom: 1rem;
+        }
+
+        .answer strong {
+            color: #2e7d32;
+        }
+
+        .answer em {
+            color: #5a6c57;
+        }
+
+        .note-box {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid #2e7d32;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .warning-box {
+            background: rgba(194, 24, 91, 0.05);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid #c2185b;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-top: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        footer p {
+            color: #2e7d32;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .qa-item {
+                padding: 1.5rem;
+            }
+
+            .question {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noor-container" id="noorContainer"></div>
+
+    <header>
+        <nav>
+            <div class="logo-section">
+                <a href="index.html" class="site-title">Islamic Knowledge & Hanafi Teachings</a>
+                <div class="site-subtitle">Clarity, Authenticity, Humility</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="hanafi.html">Hanafi Madhhab</a></li>
+                <li><a href="questions.html">Questions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Common Questions</h1>
+            <p>Clear answers to frequently asked questions about Islam and the Hanafi madhhab</p>
+        </div>
+
+        <div class="intro-text">
+            <p>Many Muslims today have sincere questions about their faith. This page addresses common doubts and confusions with respect, clarity, and evidence from the Qur'an and Sunnah.</p>
+            <p>Remember: asking questions is a sign of seeking knowledge. There is no shame in not knowing—only in refusing to learn.</p>
+        </div>
+
+        <!-- CATEGORY 1: Faith and Belief -->
+        <div class="category-section">
+            <h2 class="category-title">Faith & Belief</h2>
+
+            <div class="qa-item">
+                <div class="question">What makes someone a Muslim?</div>
+                <div class="answer">
+                    <p>A person becomes a Muslim by sincerely believing and declaring the Shahadah (testimony of faith): "Ash-hadu an la ilaha illa Allah, wa ash-hadu anna Muhammadan rasul Allah" (I testify that there is no god but Allah, and I testify that Muhammad is the Messenger of Allah).</p>
+                    <p><strong>This means:</strong> Believing with your heart and confirming with your tongue that Allah is the only God worthy of worship, and that Prophet Muhammad ﷺ is His final messenger to all humanity.</p>
+                    <div class="note-box">
+                        <strong>Important:</strong> Being Muslim also requires accepting everything that is known to be an essential part of Islam, such as the five pillars, belief in all the prophets, the Day of Judgment, and so on.
+                    </div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">Can a Muslim have doubts about their faith?</div>
+                <div class="answer">
+                    <p>It is normal for humans to experience fleeting doubts or questions—this is part of being tested in this life. What matters is how you respond to these doubts.</p>
+                    <p><strong>The right approach:</strong> Seek knowledge from qualified scholars, make du'a to Allah for firmness in faith, and don't dwell on whispers from Shaytan. The Companions themselves experienced such whispers and asked the Prophet ﷺ about them, and he reassured them that recognizing these as evil whispers is itself a sign of faith.</p>
+                    <div class="note-box">
+                        "The people came to the Prophet ﷺ and said, 'We find in ourselves thoughts that are too terrible to speak about.' He said, 'Do you really find that?' They said, 'Yes.' He said, 'That is clear faith.'" (Sahih Muslim)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 2: Following a Madhhab -->
+        <div class="category-section">
+            <h2 class="category-title">Following a Madhhab vs. "Following Only Quran & Sunnah"</h2>
+
+            <div class="qa-item">
+                <div class="question">Someone told me I should "follow only Quran and Sunnah, not a madhhab." How do I respond?</div>
+                <div class="answer">
+                    <p>This statement sounds pious, but it misunderstands what a madhhab is. <strong>Everyone who follows Islam properly IS following the Quran and Sunnah</strong>—the question is: how do we understand them correctly?</p>
+                    <p>The madhhabs are not alternatives to the Quran and Sunnah. They are <em>methodologies</em> for understanding and applying the Quran and Sunnah correctly. Following a madhhab means learning from scholars who dedicated their lives to understanding these sources.</p>
+                    <div class="note-box">
+                        <strong>Analogy:</strong> When you're sick, you go to a doctor because they have expertise in medicine. You don't say, "I'll just read medical books myself." Similarly, in Islamic law, we follow qualified scholars (through the madhhabs) because they have the expertise we lack.
+                    </div>
+                    <p>The real question is not "Madhhab or Quran/Sunnah?" but rather: "Will I follow scholars who have preserved the correct understanding, or will I rely on my own limited knowledge?"</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">Did the Companions follow madhhabs?</div>
+                <div class="answer">
+                    <p>The Companions lived during the time of the Prophet ﷺ and shortly after, so they learned directly from him or from other Companions. They didn't need madhhabs in the formal sense because they had direct access to authentic knowledge.</p>
+                    <p><strong>However:</strong> The Companions themselves had different understandings of certain issues, and later generations of Muslims followed the methodologies of specific Companions. This is the origin of the madhhabs—they systematized and preserved the approaches of the Companions and early scholars.</p>
+                    <p>The four madhhabs all trace their methodologies back to the understanding of the Companions and the Tabi'in (the generation after the Companions).</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">Is it allowed to switch between madhhabs or pick and choose rulings?</div>
+                <div class="answer">
+                    <p>For ordinary Muslims, it is not appropriate to "shop around" between madhhabs to find the easiest ruling (called talfiq). This is because:</p>
+                    <ul style="margin-left: 2rem;">
+                        <li>Rulings within a madhhab form a consistent whole based on certain principles</li>
+                        <li>Picking the easiest opinion from each school can lead to following desires rather than truth</li>
+                        <li>It can result in contradictory practices that no scholar would approve of</li>
+                    </ul>
+                    <p><strong>That said:</strong> In cases of genuine need or difficulty, a person may consult scholars and follow a different opinion temporarily. But this should be done under the guidance of qualified teachers, not by personal preference.</p>
+                    <div class="warning-box">
+                        <strong>Warning:</strong> Always seek guidance from a qualified scholar before deviating from your madhhab, especially in matters of worship.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 3: Hadith and Authority -->
+        <div class="category-section">
+            <h2 class="category-title">Hadith & Authority</h2>
+
+            <div class="qa-item">
+                <div class="question">If there's a hadith about something, why don't Hanafis always follow it?</div>
+                <div class="answer">
+                    <p>This is a common misunderstanding. Hanafi scholars DO follow authentic hadith—but they have strict standards for authentication and understanding. Here are some reasons a particular hadith might not be acted upon:</p>
+                    <ul style="margin-left: 2rem;">
+                        <li><strong>Chain of narration:</strong> The hadith may not meet Hanafi standards of authenticity in its chain</li>
+                        <li><strong>Contradicting stronger evidence:</strong> There may be a more authentic hadith or clearer verse of Quran that takes precedence</li>
+                        <li><strong>Practice of Companions:</strong> If the Companions understood the hadith differently or practiced differently, that interpretation is followed</li>
+                        <li><strong>Apparent vs. real meaning:</strong> The hadith may have a deeper meaning that requires expert interpretation</li>
+                    </ul>
+                    <p>Remember: hadith science is incredibly complex. What seems straightforward to us may have layers of context and interpretation that scholars have studied for centuries.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">What if a hadith seems clear but my madhhab says something different?</div>
+                <div class="answer">
+                    <p>First, understand that you likely don't have the full picture. A hadith that seems "clear" to a beginner may have:</p>
+                    <ul style="margin-left: 2rem;">
+                        <li>Questions about its authenticity</li>
+                        <li>Another hadith that adds important context</li>
+                        <li>An interpretation known to the Companions that isn't immediately obvious</li>
+                        <li>Conditions or exceptions that aren't mentioned in that particular narration</li>
+                    </ul>
+                    <p><strong>The wise approach:</strong> Trust the scholars of your madhhab who have spent decades studying these matters. If you have sincere questions, consult a qualified teacher who can explain the reasoning.</p>
+                    <div class="note-box">
+                        Don't assume you know better than Imam Abu Hanifa, Imam Malik, Imam Shafi'i, or Imam Ahmad. These were giants of knowledge who memorized thousands of hadiths and dedicated their lives to understanding Islam.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 4: Prayer and Worship -->
+        <div class="category-section">
+            <h2 class="category-title">Prayer & Worship</h2>
+
+            <div class="qa-item">
+                <div class="question">Why do Hanafis pray differently than others (e.g., hand position, raising hands)?</div>
+                <div class="answer">
+                    <p>These differences are not "wrong" practices—they are different valid interpretations based on different authentic narrations. The Prophet ﷺ himself prayed in slightly different ways at different times, and different Companions narrated what they saw.</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul style="margin-left: 2rem;">
+                        <li>Some Companions narrated seeing the Prophet ﷺ place his hands below the navel, others on the chest</li>
+                        <li>Some narrations mention raising hands multiple times in prayer, others don't mention it</li>
+                    </ul>
+                    <p>All four madhhabs base their positions on authentic evidence—they simply weigh the evidence differently. Praying according to any of the four madhhabs is completely valid and accepted by Allah.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">Can I pray behind an imam from a different madhhab?</div>
+                <div class="answer">
+                    <p><strong>Yes, absolutely.</strong> Muslims of different madhhabs have prayed together for over a thousand years. The differences in prayer are minor details, and your prayer is valid regardless of small differences in how the imam prays.</p>
+                    <div class="note-box">
+                        <strong>Historical Fact:</strong> In Makkah and Madinah, there were designated spots for imams of each madhhab, and people would pray behind any of them. This shows that our scholars recognized the validity of all four schools.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 5: Modern Challenges -->
+        <div class="category-section">
+            <h2 class="category-title">Modern Challenges</h2>
+
+            <div class="qa-item">
+                <div class="question">Can the madhhabs address modern issues like cryptocurrency, IVF, and organ donation?</div>
+                <div class="answer">
+                    <p><strong>Yes.</strong> The madhhabs are not rigid historical relics—they are living methodologies. Contemporary Hanafi (and other) scholars use the established principles of their madhhabs to derive rulings for new situations.</p>
+                    <p>For example:</p>
+                    <ul style="margin-left: 2rem;">
+                        <li><strong>Cryptocurrency:</strong> Analyzed using principles of money, contracts, and riba (interest)</li>
+                        <li><strong>Medical procedures:</strong> Evaluated based on principles of necessity, harm, and benefit</li>
+                        <li><strong>Modern contracts:</strong> Examined using classical principles of trade and agreement</li>
+                    </ul>
+                    <div class="note-box">
+                        The beauty of following a madhhab is that you can consult contemporary scholars who are trained in that school's methodology to get reliable answers to modern questions.
+                    </div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">I see conflicting fatwas online. How do I know which one to follow?</div>
+                <div class="answer">
+                    <p>This is one of the biggest challenges of our age. Here's the wise approach:</p>
+                    <ol style="margin-left: 2rem;">
+                        <li><strong>Have a local scholar:</strong> Find a qualified, trustworthy scholar in your area who can guide you personally</li>
+                        <li><strong>Stick to your madhhab:</strong> Follow scholars who are trained in your madhhab's methodology</li>
+                        <li><strong>Check credentials:</strong> Not everyone online is qualified to issue fatwas. Verify their education and training</li>
+                        <li><strong>Beware of extremes:</strong> Avoid both the excessively strict and the excessively lenient</li>
+                        <li><strong>Seek consistency:</strong> Don't just pick whatever answer you like—follow scholars consistently</li>
+                    </ol>
+                    <div class="warning-box">
+                        <strong>Be Careful:</strong> Social media "sheikhs" may not have proper Islamic education. Look for scholars with recognized credentials and proper chains of learning.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Islamic Knowledge & Hanafi Teachings | Answering questions with wisdom and evidence</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #c2185b; font-style: italic;">May Allah guide us to clarity and understanding</p>
+    </footer>
+
+    <script>
+        const noorContainer = document.getElementById('noorContainer');
+        
+        function createLightRay() {
+            const ray = document.createElement('div');
+            ray.className = 'light-ray';
+            ray.style.left = Math.random() * 100 + '%';
+            ray.style.animationDelay = Math.random() * 5 + 's';
+            ray.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            noorContainer.appendChild(ray);
+            setTimeout(() => ray.remove(), 10000);
+        }
+        
+        setInterval(createLightRay, 1500);
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createLightRay, i * 500);
+        }
+    </script>
+</body>
+
+</html>

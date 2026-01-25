@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Islamic Knowledge & Hanafi Teachings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Baskerville', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(194, 24, 91, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .noor-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .light-ray {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            animation: fallLight 8s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fallLight {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-bottom: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(46, 125, 50, 0.08);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            text-decoration: none;
+        }
+
+        .site-subtitle {
+            font-size: 0.9rem;
+            color: #c2185b;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2e7d32, #c2185b);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 2rem 0 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(232, 245, 233, 0.6) 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #c2185b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 245, 233, 0.7) 100%);
+            padding: 2rem;
+            border-left: 5px solid #c2185b;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 25px rgba(46, 125, 50, 0.1);
+        }
+
+        .section {
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #c2185b;
+            font-weight: 600;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(194, 24, 91, 0.05) 0%, transparent 70%);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(46, 125, 50, 0.15);
+        }
+
+        .resource-title {
+            font-size: 1.4rem;
+            color: #c2185b;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .resource-author {
+            font-size: 1rem;
+            color: #5a6c57;
+            margin-bottom: 1rem;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .resource-description {
+            margin: 1rem 0;
+            color: #2c3e50;
+            position: relative;
+            z-index: 2;
+        }
+
+        .resource-level {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .level-beginner {
+            background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+            color: white;
+        }
+
+        .level-intermediate {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+        }
+
+        .level-advanced {
+            background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);
+            color: white;
+        }
+
+        .guidance-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.8) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.12);
+            margin: 3rem 0;
+        }
+
+        .guidance-section h3 {
+            color: #2e7d32;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .guidance-section p {
+            margin-bottom: 1rem;
+        }
+
+        .guidance-section ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        .guidance-section li {
+            margin-bottom: 0.8rem;
+            color: #4a5f4a;
+        }
+
+        .warning-box {
+            background: rgba(194, 24, 91, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid #c2185b;
+            border-radius: 5px;
+            margin: 2rem 0;
+        }
+
+        .note-box {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid #2e7d32;
+            border-radius: 5px;
+            margin: 2rem 0;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
+            border-top: 2px solid rgba(46, 125, 50, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        footer p {
+            color: #2e7d32;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .resource-card {
+                padding: 1.5rem;
+            }
+
+            .guidance-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noor-container" id="noorContainer"></div>
+
+    <header>
+        <nav>
+            <div class="logo-section">
+                <a href="index.html" class="site-title">Islamic Knowledge & Hanafi Teachings</a>
+                <div class="site-subtitle">Clarity, Authenticity, Humility</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="hanafi.html">Hanafi Madhhab</a></li>
+                <li><a href="questions.html">Questions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Learning Resources</h1>
+            <p>Recommended books, scholars, and guidance for your Islamic learning journey</p>
+        </div>
+
+        <div class="intro-text">
+            <p>This page provides carefully selected resources to help you deepen your understanding of Islam, the Hanafi madhhab, and Islamic scholarship. All recommendations are based on authenticity, clarity, and alignment with traditional Sunni teachings.</p>
+            <div class="note-box">
+                <strong>Important Note:</strong> These are educational recommendations only. No affiliate links or commercial interests are involved—all suggestions are purely for the benefit of seekers of knowledge.
+            </div>
+        </div>
+
+        <!-- GUIDANCE SECTION -->
+        <div class="guidance-section">
+            <h3>How to Approach Islamic Learning</h3>
+            <p>Before diving into books and resources, understand these fundamental principles:</p>
+            <ul>
+                <li><strong>Seek a qualified teacher:</strong> Books alone are not enough. Find a knowledgeable, pious scholar who can guide you personally</li>
+                <li><strong>Learn with intention:</strong> Study to please Allah and improve your practice, not to debate or show off</li>
+                <li><strong>Start with basics:</strong> Don't jump to advanced topics before mastering fundamentals</li>
+                <li><strong>Be patient:</strong> Islamic knowledge is vast and takes years to acquire properly</li>
+                <li><strong>Practice what you learn:</strong> Knowledge without action is worthless</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>Warning:</strong> Beware of learning Islam primarily from YouTube, social media, or unqualified speakers. Always verify sources and prioritize scholars with recognized credentials and proper chains of learning (ijazah).
+            </div>
+        </div>
+
+        <!-- SECTION 1: For Complete Beginners -->
+        <div class="section">
+            <h2 class="section-title">For Complete Beginners</h2>
+
+            <div class="resource-card">
+                <div class="resource-title">The Essentials of Islam</div>
+                <div class="resource-author">By Shaykh Ahmad ibn Naqib al-Misri (translated by Nuh Ha Mim Keller)</div>
+                <div class="resource-description">
+                    <p>A short, clear introduction to the fundamentals of Islamic belief and practice. Covers the six pillars of faith, the five pillars of Islam, and basic legal rulings in simple language.</p>
+                    <p><strong>Why read this:</strong> Perfect starting point for anyone new to serious Islamic study. Based on classical Shafi'i teachings but beneficial for all Muslims.</p>
+                </div>
+                <span class="resource-level level-beginner">Beginner</span>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-title">Being Muslim: A Practical Guide</div>
+                <div class="resource-author">By Asad Tarsin</div>
+                <div class="resource-description">
+                    <p>A contemporary guide to living as a Muslim in the modern world. Covers prayer, fasting, character development, and practical spirituality in an accessible way.</p>
+                    <p><strong>Why read this:</strong> Addresses modern concerns while staying rooted in traditional teachings. Great for young Muslims and new converts.</p>
+                </div>
+                <span class="resource-level level-beginner">Beginner</span>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-title">Learning to Learn: A Guide to Seeking Knowledge</div>
+                <div class="resource-author">By Mufti Abdur-Rahman ibn Yusuf</div>
+                <div class="resource-description">
+                    <p>A short book on how to approach Islamic knowledge correctly—the importance of sincerity, finding teachers, and building good study habits.</p>
+                    <p><strong>Why read this:</strong> Sets the right foundation for your learning journey before you dive into specific subjects.</p>
+                </div>
+                <span class="resource-level level-beginner">Beginner</span>
+            </div>
+        </div>
+
+        <!-- SECTION 2: Hanafi Fiqh -->
+        <div class="section">
+            <h2 class="section-title">Hanafi Fiqh (Islamic Jurisprudence)</h2>
+
+            <div class="resource-card">
+                <div class="resource-title">Ascent to Felicity (Maraqi al-Sa'adat)</div>
+                <div class="resource-author">By Imam Abu al-Ikhlas al-Shurunbulali (translated)</div>
+                <div class="resource-description">
+                    <p>A classical Hanafi primer covering the rulings of purification, prayer, fasting, zakat, and hajj. Written in simple language with clear explanations.</p>
+                    <p><strong>Why read this:</strong> This is the standard beginner text in Hanafi fiqh studied for centuries. Clear, concise, and comprehensive for daily worship.</p>
+                </div>
+                <span class="resource-level level-beginner">Beginner</span>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-title">Al-Hidayah: The Guidance</div>
+                <div class="resource-author">By Burhan al-Din al-Marghinani (translated)</div>
+                <div class="resource-description">
+                    <p>One of the most important texts in Hanafi fiqh, covering all aspects of Islamic law in detail with evidences from Qur'an and Hadith.</p>
+                    <p><strong>Why read this:</strong> For serious students who want to understand the reasoning behind Hanafi positions. Intermediate to advanced level.</p>
+                </div>
+                <span class="resource-level level-advanced">Advanced</span>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-title">The Accessible Conspectus (Nur al-Idah)</div>
+                <div class="resource-author">By Imam Hasan al-Shurunbulali (translated)</div>
+                <div class="resource-description">
+                    <p>Another classical primer on Hanafi worship rulings. Slightly more detailed than Ascent to Felicity.</p>
+                    <p><strong>Why read this:</strong> Excellent for those who have basic knowledge and want more detailed understanding of worship.</p>
+                </div>
+                <span class="resource-level level-intermediate">Intermediate</span>
+            </div>
+        </div>
+
+        <!-- SECTION 3: Hadith and Sunnah -->
+        <div class="section">
+            <h2 class="section-title">Hadith & Sunnah</h2>
+
+            <div class="resource-card">
+                <div class="resource-title">Riyadh al-Salihin (Gardens of the Righteous)</div>
+                <div class="resource-author">By Imam al-Nawawi</div>
+                <div class="resource-description">
+                    <p>A collection of authentic hadiths organized by topic (manners, character, worship, etc.). Perfect for daily reading and reflection.</p>
+                    <p><strong>Why read this:</strong> Builds Islamic character and understanding of the Sunnah without requiring deep hadith knowledge.</p>
+                </div>
+                <span class="resource-level level-beginner">Beginner</span>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-title">Al-Adab al-Mufrad (Book of Manners)</div>
+                <div class="resource-author">By Imam Bukhari</div>
+                <div class="resource-description">
+                    <p>A focused collection on Islamic manners, ethics, and character from the compiler of the most authentic hadith collection.</p>
+                    <p><strong>Why read this:</strong> Shows the practical, character-building aspect of following the Sunnah.</p>
+                </div>
+                <span class="resource-level level-beginner">Beginner</span>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-title">The Authority and Importance of the Sunnah</div>
+                <div class="resource-author">By Shaykh Jamaal Zarabozo</div>
+                <div class="resource-description">
+                    <p>Explains why the Sunnah is essential and how it functions alongside the Qur'an. Addresses modern objections to following Hadith.</p>
+                    <p><strong>Why read this:</strong> Clarifies misconceptions about "Quran-only" approaches and the role of Hadith in Islam.</p>
+                </div>
+                <span class="resource-level level-intermediate">Intermediate</span>
+            </div>
+        </div>
+
+        <!-- SECTION 4: Islamic Belief (Aqeedah) -->
+        <div class="section">
+            <h2 class="section-title">Islamic Belief (Aqeedah)</h2>
+
+            <div class="resource-card">
+                <div class="resource-title">The Creed of Imam al-Tahawi</div>
+                <div class="resource-author">By Imam al-Tahawi (Hanafi scholar, 3rd century AH)</div>
+                <div class="resource-description">
+                    <p>A concise statement of Sunni Islamic belief accepted by all four madhhabs. Covers the fundamentals of faith without controversy.</p>
+                    <p><strong>Why read this:</strong> Standard text for understanding authentic Sunni belief, endorsed by scholars across all schools.</p>
+                </div>
+                <span class="resource-level level-intermediate">Intermediate</span>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-title">The Fundamentals of Tawheed (Islamic Monotheism)</div>
+                <div class="resource-author">By Dr. Bilal Philips</div>
+                <div class="resource-description">
+                    <p>Clear explanation of Islamic monotheism and belief in Allah's oneness, unity, and attributes.</p>
+                    <p><strong>Why read this:</strong> Accessible introduction to Islamic theology for English speakers.</p>
+                </div>
+                <span class="resource-level level-beginner">Beginner</span>
+            </div>
+        </div>
+
+        <!-- SECTION 5: Spiritual Development -->
+        <div class="section">
+            <h2 class="section-title">Spiritual Development & Character</h2>
+
+            <div class="resource-card">
+                <div class="resource-title">Purification of the Heart</div>
+                <div class="resource-author">By Hamza Yusuf (based on Imam al-Mawlud's work)</div>
+                <div class="resource-description">
+                    <p>Addresses spiritual diseases of the heart (envy, pride, anger, etc.) and their cures from Islamic teachings.</p>
+                    <p><strong>Why read this:</strong> Islam is not just about outward actions—inner purity is essential. This book guides that journey.</p>
+                </div>
+                <span class="resource-level level-beginner">Beginner</span>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-title">The Book of Assistance</div>
+                <div class="resource-author">By Imam al-Haddad</div>
+                <div class="resource-description">
+                    <p>Practical spiritual guidance for Muslims seeking to improve their relationship with Allah and their daily practice.</p>
+                    <p><strong>Why read this:</strong> Short, powerful, and filled with wisdom from a great scholar of Islamic spirituality.</p>
+                </div>
+                <span class="resource-level level-beginner">Beginner</span>
+            </div>
+        </div>
+
+        <!-- LEARNING PATH GUIDANCE -->
+        <div class="guidance-section">
+            <h3>Suggested Learning Path</h3>
+            <p>Here's a recommended sequence for serious students:</p>
+            <ol style="margin-left: 2rem;">
+                <li><strong>Foundation (Year 1):</strong> Basic aqeedah, intro to fiqh, and character development</li>
+                <li><strong>Building (Year 2-3):</strong> Detailed study of worship (prayer, fasting, etc.), introduction to hadith science</li>
+                <li><strong>Deepening (Year 4-5):</strong> Principles of fiqh (usul al-fiqh), hadith studies, Islamic history</li>
+                <li><strong>Specialization (Year 6+):</strong> Focus on specific areas under qualified teachers</li>
+            </ol>
+            <p style="margin-top: 1.5rem;"><strong>Remember:</strong> This is a marathon, not a sprint. Seek Allah's pleasure in every step, and He will guide you.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Islamic Knowledge & Hanafi Teachings | Guiding seekers to authentic knowledge</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #c2185b; font-style: italic;">اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي وَعَلِّمْنِي مَا يَنْفَعُنِي</p>
+    </footer>
+
+    <script>
+        const noorContainer = document.getElementById('noorContainer');
+        
+        function createLightRay() {
+            const ray = document.createElement('div');
+            ray.className = 'light-ray';
+            ray.style.left = Math.random() * 100 + '%';
+            ray.style.animationDelay = Math.random() * 5 + 's';
+            ray.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            noorContainer.appendChild(ray);
+            setTimeout(() => ray.remove(), 10000);
+        }
+        
+        setInterval(createLightRay, 1500);
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createLightRay, i * 500);
+        }
+    </script>
+</body>
+</html>
