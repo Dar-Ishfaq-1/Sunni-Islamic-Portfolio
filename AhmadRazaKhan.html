@@ -3,148 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imam Ahmad Raza Khan Barelvi - Life and Works</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>Imam Ahmad Raza Khan(RA) - Life and Works</title>
+   <style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.8;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
-        }
+/* BODY */
+body {
+    font-family: 'Georgia', 'Baskerville', serif;
+    line-height: 1.8;
+    color: #2c3e50;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+    overflow-x: hidden;
+}
 
-        .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+/* HEADER & NAV (same as Page 1) */
+header {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(232,245,233,0.95));
+    border-bottom: 2px solid rgba(46,125,50,0.1);
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 20px rgba(46,125,50,0.08);
+}
 
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-            font-style: italic;
-        }
+.logo-section {
+    display: flex;
+    flex-direction: column;
+}
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .content-box {
-            background: white;
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border-left: 5px solid #2a5298;
-        }
-
-        h2 {
-            color: #1e3c72;
-            font-size: 2em;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #e8f0f7;
-        }
-
-        h3 {
-            color: #2a5298;
-            font-size: 1.5em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .highlight-box {
-            background: #f8f9fa;
-            border-left: 4px solid #27ae60;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 6px;
-        }
-
-        .incident-box {
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
-            border-left: 4px solid #e67e22;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .list-section {
-            background: #f0f7ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-top: 15px;
-        }
-
-        li {
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .quote {
-            font-style: italic;
-            color: #34495e;
-            padding: 20px;
-            background: #ecf0f1;
-            border-radius: 8px;
-            margin: 25px 0;
-            text-align: center;
-        }
-
-        .footer {
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
+.hero h1 {
+                font-size: 1.8rem;
             }
-            
-            .content-box {
-                padding: 25px;
-            }
-            
-            h2 {
-                font-size: 1.6em;
-            }
+
+            .hero h1 {
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #c2185b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
         }
-    </style>
+
+         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+.site-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: linear-gradient(135deg, #2e7d32, #1b5e20);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.site-subtitle {
+    font-size: 0.9rem;
+    color: #c2185b;
+    font-style: italic;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #2e7d32;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #2e7d32, #c2185b);
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* PAGE CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* CONTENT BOXES (cards like Page 1) */
+.content-box {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(232,245,233,0.85));
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(46,125,50,0.12);
+    border-left: 5px solid #c2185b;
+    position: relative;
+}
+
+/* HEADINGS */
+h2 {
+    font-size: 1.9rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #2e7d32, #c2185b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+/* TEXT */
+p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
+    color: #34495e;
+}
+
+/* LIST SECTIONS */
+.list-section {
+    background: rgba(255,255,255,0.8);
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 15px rgba(46,125,50,0.08);
+}
+
+ul {
+    margin-left: 1.2rem;
+}
+
+li {
+    margin-bottom: 0.8rem;
+}
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    padding: 1.8rem;
+    border-left: 5px solid #2e7d32;
+    border-radius: 10px;
+    margin: 2rem 0;
+    box-shadow: 0 5px 20px rgba(46,125,50,0.1);
+}
+
+/* INCIDENT BOX */
+.incident-box {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,243,224,0.9));
+    padding: 2rem;
+    margin: 2.5rem 0;
+    border-radius: 15px;
+    border-top: 4px solid #c2185b;
+    box-shadow: 0 8px 25px rgba(46,125,50,0.15);
+}
+
+/* QUOTE */
+.quote {
+    font-style: italic;
+    color: #2e7d32;
+    padding: 2rem;
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    margin: 2.5rem 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(46,125,50,0.1);
+}
+
+/* FOOTER */
+.footer {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(232,245,233,0.95));
+    border-top: 2px solid rgba(46,125,50,0.1);
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.footer p {
+    color: #2e7d32;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .container {
+        padding: 2rem 1.5rem;
+    }
+
+    .content-box {
+        padding: 2rem;
+    }
+    .logo-sect {
+            display: flex;
+            flex-direction: column;
+        }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+}
+</style>
+
 </head>
 <body>
-    <div class="header">
-        <h1>Imam Ahmad Raza Khan Barelvi</h1>
-        <p>A Scholar of Deep Knowledge and Wide Learning (1856-1921)</p>
+
+  <div style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-bottom: 3px solid #f57c00; padding: 1rem 2rem; text-align: center; position: relative; z-index: 200;">
+    <p style="margin: 0; color: #e65100; font-size: 1rem; font-weight: 600;">
+        ⚠️ This website is currently under development. Many links and features are not yet working. إن شاء الله (Insha'Allah), it will be completed soon. جزاكم الله خيرا (JazakAllahu Khairan) for your patience.
+    </p>
+</div>
+<header>
+        <nav>
+            <div class="logo-sect">
+                <a href="index.html" class="site-title">Islamic Knowledge & Hanafi Teachings</a>
+                <div class="site-subtitle">Clarity, Authenticity, Humility</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="hanafi.html">Hanafi Madhhab</a></li>
+                <li><a href="ahmadrazakhan.html">Ahmad Raza Khan</a></li>
+                <li><a href="questions.html">Questions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+      <div class = "hero">
+        <h1 style="text-align: center;">Imam Ahmad Raza Khan(RA) </h1>
+        <p style="text-align: center;">A Scholar of Deep Knowledge and Wide Learning (1856-1921)</p>
     </div>
+    </div>
+
+    <!-- UNDER DEVELOPMENT NOTICE - Add this right after opening <body> tag -->
+
+
+    
 
     <div class="container">
         <div class="content-box">
