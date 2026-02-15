@@ -5,340 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles & Essays - Islamic Knowledge & Hanafi Teachings</title>
    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Baskerville', serif;
-            line-height: 1.8;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(194, 24, 91, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .noor-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .light-ray {
-            position: absolute;
-            width: 2px;
-            height: 100px;
-            background: linear-gradient(to bottom, 
-                rgba(255, 255, 255, 0) 0%, 
-                rgba(255, 255, 255, 0.6) 50%, 
-                rgba(255, 255, 255, 0) 100%);
-            animation: fallLight 8s linear infinite;
-            opacity: 0;
-        }
-
-        @keyframes fallLight {
-            0% { transform: translateY(-100px); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-
-        header {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
-            border-bottom: 2px solid rgba(46, 125, 50, 0.1);
-            padding: 1.5rem 0;
-            position: relative;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(46, 125, 50, 0.08);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo-section {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .site-title {
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            text-decoration: none;
-        }
-
-        .site-subtitle {
-            font-size: 0.9rem;
-            color: #c2185b;
-            font-style: italic;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #2e7d32;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            position: relative;
-            padding: 0.3rem 0;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #2e7d32, #c2185b);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .page-header {
-            text-align: center;
-            padding: 2rem 0 3rem;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(232, 245, 233, 0.6) 100%);
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.1);
-        }
-
-        .page-header h1 {
-            font-size: 2.3rem;
-            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #c2185b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .intro-text {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 245, 233, 0.7) 100%);
-            padding: 2rem;
-            border-left: 5px solid #c2185b;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            box-shadow: 0 5px 25px rgba(46, 125, 50, 0.1);
-        }
-
-        .edit-instructions {
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            border: 2px dashed #f57c00;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .edit-instructions h3 {
-            color: #e65100;
-            margin-bottom: 1rem;
-        }
-
-        .edit-instructions p {
-            margin-bottom: 0.5rem;
-            color: #4a5f4a;
-        }
-
-        .category-section {
-            margin: 3rem 0;
-        }
-
-        .category-title {
-            font-size: 1.8rem;
-            color: #2e7d32;
-            margin-bottom: 2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #c2185b;
-            font-weight: 600;
-        }
-
-        .article-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.1);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .article-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(194, 24, 91, 0.05) 0%, transparent 70%);
-        }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 35px rgba(46, 125, 50, 0.18);
-        }
-
-        .article-meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: #5a6c57;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-
-        .article-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .article-title {
-            font-size: 1.6rem;
-            color: #c2185b;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
-        }
-
-        .article-excerpt {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            position: relative;
-            z-index: 2;
-        }
-
-        .article-tags {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-
-        .tag {
-            padding: 0.3rem 1rem;
-            background: rgba(46, 125, 50, 0.1);
-            color: #2e7d32;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .read-more {
-            color: #c2185b;
-            font-weight: 600;
-            margin-top: 1rem;
-            display: inline-block;
-            position: relative;
-            z-index: 2;
-        }
-
-        .read-more::after {
-            content: ' →';
-        }
-
-        footer {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
-            border-top: 2px solid rgba(46, 125, 50, 0.1);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-            position: relative;
-            z-index: 100;
-        }
-
-        footer p {
-            color: #2e7d32;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav ul {
-                margin-top: 1rem;
-                gap: 1rem;
-            }
-
-            .page-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .article-card {
-                padding: 1.5rem;
-            }
-
-            .article-title {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -388,7 +55,7 @@
             <h2 class="category-title">Qur'an & Sunnah</h2>
 
             <!-- ARTICLE 1 - EXAMPLE -->
-            <a href="#" class="article-card">
+            <a href="https://medium.com/@mohammadkamraan196/how-to-understand-the-quran-beyond-literal-translation-0b135b7ea38e" class="article-card" target="_blank" rel="noopener noreferrer">
                 <div class="article-meta">
                     <span>📅 January 15, 2026</span>
                     <span>⏱️ 8 min read</span>
@@ -406,7 +73,7 @@
             </a>
 
             <!-- ARTICLE 2 - EXAMPLE -->
-            <a href="#" class="article-card">
+            <a href="https://medium.com/@mohammadkamraan196/the-status-of-sunnah-why-we-cannot-ignore-the-prophets-%EF%B7%BA-teachings-0834fad76706" target="_blank" rel="noopener noreferrer" class="article-card">
                 <div class="article-meta">
                     <span>📅 December 28, 2025</span>
                     <span>⏱️ 12 min read</span>
@@ -428,7 +95,7 @@
         <div class="category-section">
             <h2 class="category-title">Hadith & Islamic Scholarship</h2>
 
-            <a href="#" class="article-card">
+            <a href="https://medium.com/@mohammadkamraan196/understanding-hadith-classification-sahih-hasan-and-daif-explained-7c8c0f0c8e2d" class="article-card" target="_blank" rel="noopener noreferrer">
                 <div class="article-meta">
                     <span>📅 December 10, 2025</span>
                     <span>⏱️ 10 min read</span>
@@ -445,7 +112,7 @@
                 <span class="read-more">Read Full Article</span>
             </a>
 
-            <a href="#" class="article-card">
+            <a href="https://medium.com/@mohammadkamraan196/why-we-cant-just-read-hadith-ourselves-the-need-for-scholarship-72ea6043adaf" class="article-card" target="_blank" rel="noopener noreferrer">
                 <div class="article-meta">
                     <span>📅 November 22, 2025</span>
                     <span>⏱️ 15 min read</span>
@@ -467,7 +134,7 @@
         <div class="category-section">
             <h2 class="category-title">Taqlid & the Madhhabs</h2>
 
-            <a href="#" class="article-card">
+            <a href="https://medium.com/@mohammadkamraan196/taql%C4%ABd-is-not-blind-following-understanding-true-islamic-learning-06a8b0409a2c" class="article-card" target="_blank" rel="noopener noreferrer">
                 <div class="article-meta">
                     <span>📅 November 5, 2025</span>
                     <span>⏱️ 20 min read</span>
@@ -484,7 +151,7 @@
                 <span class="read-more">Read Full Article</span>
             </a>
 
-            <a href="#" class="article-card">
+            <a href="https://medium.com/@mohammadkamraan196/the-four-madhhabs-unity-not-division-1c13e1eefedd" class="article-card" target="_blank" rel="noopener noreferrer">
                 <div class="article-meta">
                     <span>📅 October 18, 2025</span>
                     <span>⏱️ 18 min read</span>
@@ -501,7 +168,7 @@
                 <span class="read-more">Read Full Article</span>
             </a>
 
-            <a href="#" class="article-card">
+            <a href="https://medium.com/@mohammadkamraan196/can-i-follow-different-madhhabs-for-different-issues-b2c617bd1543" class="article-card" target="_blank" rel="noopener noreferrer">
                 <div class="article-meta">
                     <span>📅 October 1, 2025</span>
                     <span>⏱️ 12 min read</span>
@@ -523,7 +190,8 @@
         <div class="category-section">
             <h2 class="category-title">Contemporary Issues & Challenges</h2>
 
-            <a href="#" class="article-card">
+            <a href="https://medium.com/@mohammadkamraan196/social-media-sheikhs-the-danger-of-unqualified-religious-advice-aef64aa503d7" class="article-card" target="_blank" rel="noopener noreferrer">
+
                 <div class="article-meta">
                     <span>📅 September 15, 2025</span>
                     <span>⏱️ 14 min read</span>

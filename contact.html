@@ -4,319 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Islamic Knowledge & Hanafi Teachings</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Baskerville', serif;
-            line-height: 1.8;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(194, 24, 91, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .noor-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .light-ray {
-            position: absolute;
-            width: 2px;
-            height: 100px;
-            background: linear-gradient(to bottom, 
-                rgba(255, 255, 255, 0) 0%, 
-                rgba(255, 255, 255, 0.6) 50%, 
-                rgba(255, 255, 255, 0) 100%);
-            animation: fallLight 8s linear infinite;
-            opacity: 0;
-        }
-
-        @keyframes fallLight {
-            0% { transform: translateY(-100px); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-
-        header {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
-            border-bottom: 2px solid rgba(46, 125, 50, 0.1);
-            padding: 1.5rem 0;
-            position: relative;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(46, 125, 50, 0.08);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo-section {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .site-title {
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            text-decoration: none;
-        }
-
-        .site-subtitle {
-            font-size: 0.9rem;
-            color: #c2185b;
-            font-style: italic;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #2e7d32;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            position: relative;
-            padding: 0.3rem 0;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #2e7d32, #c2185b);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .page-header {
-            text-align: center;
-            padding: 2rem 0 3rem;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(232, 245, 233, 0.6) 100%);
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.1);
-        }
-
-        .page-header h1 {
-            font-size: 2.3rem;
-            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #c2185b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .intro-text {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 245, 233, 0.7) 100%);
-            padding: 2rem;
-            border-left: 5px solid #c2185b;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            box-shadow: 0 5px 25px rgba(46, 125, 50, 0.1);
-        }
-
-        .intro-text p {
-            margin-bottom: 1rem;
-        }
-
-        .contact-options {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.12);
-        }
-
-        .contact-options h2 {
-            color: #2e7d32;
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .contact-method {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: rgba(46, 125, 50, 0.03);
-            border-left: 4px solid #2e7d32;
-            border-radius: 8px;
-        }
-
-        .contact-method h3 {
-            color: #c2185b;
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .contact-method p {
-            margin-bottom: 0.5rem;
-            color: #4a5f4a;
-        }
-
-        .email-link {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
-        }
-
-        .email-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
-        }
-
-        .guidelines {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.85) 100%);
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.12);
-        }
-
-        .guidelines h2 {
-            color: #2e7d32;
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .guidelines ul {
-            margin: 1rem 0 1rem 2rem;
-        }
-
-        .guidelines li {
-            margin-bottom: 1rem;
-            color: #4a5f4a;
-        }
-
-        .note-box {
-            background: rgba(194, 24, 91, 0.05);
-            padding: 1.5rem;
-            border-left: 4px solid #c2185b;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-
-        .note-box strong {
-            color: #c2185b;
-        }
-
-        .response-time {
-            background: rgba(46, 125, 50, 0.05);
-            padding: 1.5rem;
-            border-left: 4px solid #2e7d32;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-
-        .response-time strong {
-            color: #2e7d32;
-        }
-
-        footer {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 233, 0.95) 100%);
-            border-top: 2px solid rgba(46, 125, 50, 0.1);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-            position: relative;
-            z-index: 100;
-        }
-
-        footer p {
-            color: #2e7d32;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav ul {
-                margin-top: 1rem;
-                gap: 1rem;
-            }
-
-            .page-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .contact-options, .guidelines {
-                padding: 1.5rem;
-            }
-
-            .container {
-                padding: 2rem 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -350,30 +38,33 @@
     </header>
 
     <div class="container">
-        <div class="page-header">
-            <h1>Contact</h1>
-            <p>Get in touch with feedback, questions, or corrections</p>
+    <div class="page-header">
+        <h1>Contact</h1>
+        <p>Get in touch with feedback, questions, or corrections</p>
+    </div>
+
+    <div class="intro-text">
+        <p>I welcome respectful communication from sincere seekers of knowledge...</p>
+        <p>This website exists to serve Allah and benefit the Ummah...</p>
+    </div>
+
+    <div class="contact-options">
+        <h2>How to Reach Me</h2>
+
+        <div class="contact-method">
+            <h3>📧 Email (Preferred)</h3>
+            <p>For questions, corrections, feedback...</p>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Mohdashfaq1416@gmail.com"
+               target="_blank"
+               class="email-link">
+               Send Email
+            </a>
         </div>
 
-        <div class="intro-text">
-            <p>I welcome respectful communication from sincere seekers of knowledge. Whether you have questions about the content on this website, corrections to suggest, or feedback to share, please feel free to reach out.</p>
-            <p>This website exists to serve Allah and benefit the Ummah. If you notice any errors in my writing or have suggestions for improvement, your input is greatly appreciated.</p>
-        </div>
-
-        <div class="contact-options">
-            <h2>How to Reach Me</h2>
-
-            <div class="contact-method">
-    <h3>📧 Email (Preferred)</h3>
-    <p>For questions, corrections, feedback, or general inquiries, please email:</p>
-
-    <a 
-       href="https://mail.google.com/mail/?view=cm&fs=1&to=Mohdashfaq1416@gmail.com"
-       target="_blank"
-       class="email-link">
-       Send Email
-    </a>
+    </div>
 </div>
+
 
 
             <div class="response-time">
